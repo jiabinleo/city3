@@ -1,0 +1,131 @@
+<html data-dpr="1" style="font-size: 56px;">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CitySelect</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/ydui.css?rev=@@hash">
+    <link rel="stylesheet" href="css/demo.css">
+    <script src="js/ydui.flexible.js"></script>
+    <!-- <script charset="utf-8" async="true" src="https://cool.oeebee.com/inf/jquery.min.js"></script> -->
+</head>
+
+<body cz-shortcut-listen="true" style="">
+
+    <section class="g-flexview">
+
+
+
+        <section class="g-scrollview">
+            <!-- <div class="m-celltitle">默认调用</div>
+            <div class="m-cell">
+                <div class="cell-item">
+                    <div class="cell-left">所在地区：</div>
+                    <div class="cell-right cell-arrow">
+                        <input type="text" class="cell-input" readonly="" id="J_Address" placeholder="请选择收货地址">
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-celltitle">设置默认值</div>
+            <div class="m-cell">
+                <div class="cell-item">
+                    <div class="cell-left">所在地区：</div>
+                    <div class="cell-right cell-arrow"> -->
+            <input type="text" class="cell-input" readonly="" id="J_Address2" value="" placeholder="请选择收货地址">
+            <!-- </div>
+                </div>
+            </div> -->
+        </section>
+    </section>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/ydui.citys.js"></script>
+    <script type="text/javascript" src="js/ydui.js"></script>
+    <script type="text/javascript">
+        /**
+         * 默认调用
+         */
+        !function () {
+            var $target = $('#J_Address');
+
+            $target.citySelect();
+
+            $target.on('click', function (event) {
+                event.stopPropagation();
+                $target.citySelect('open');
+            });
+
+            $target.on('done.ydui.cityselect', function (ret) {
+                $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+            });
+        }();
+        /**
+         * 设置默认值
+         */
+        !function () {
+            var city = {
+                provance: '广东',
+                city: '深圳市',
+                area: '南山区'
+            }
+            $("#J_Address2").val(city.provance + city.city + city.area)
+            var $target = $('#J_Address2');
+
+            $target.citySelect(city);
+
+            $target.on('click', function (event) {
+                event.stopPropagation();
+                $target.citySelect('open');
+            });
+
+            $target.on('done.ydui.cityselect', function (ret) {
+                $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+            });
+        }();
+    </script>
+    <div class="m-cityselect">
+        <div class="cityselect-header">
+            <p class="cityselect-title">所在地区</p>
+            <div class="cityselect-nav"> <a href="javascript:;"></a> <a href="javascript:;"></a> <a href="javascript:;"></a>
+            </div>
+        </div>
+        <ul class="cityselect-content">
+            <li class="cityselect-item">
+                <div class="cityselect-item-box"></div>
+            </li>
+            <li class="cityselect-item">
+                <div class="cityselect-item-box"></div>
+            </li>
+            <li class="cityselect-item">
+                <div class="cityselect-item-box"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="m-cityselect">
+        <div class="cityselect-header">
+            <p class="cityselect-title">所在地区</p>
+            <div class="cityselect-nav"> <a href="javascript:;"></a> <a href="javascript:;"></a> <a href="javascript:;"></a>
+            </div>
+        </div>
+        <ul class="cityselect-content">
+            <li class="cityselect-item">
+                <div class="cityselect-item-box"></div>
+            </li>
+            <li class="cityselect-item">
+                <div class="cityselect-item-box"></div>
+            </li>
+            <li class="cityselect-item">
+                <div class="cityselect-item-box"></div>
+            </li>
+        </ul>
+    </div>
+
+
+
+</body>
+
+</html>
